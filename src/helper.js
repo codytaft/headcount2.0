@@ -22,7 +22,7 @@ export default class DistrictRepository {
   findByName = (name) => {
     if (name) {
       const newName = name.toUpperCase()
-      return this.data[newName]
+      return this.stats[newName]
     }
   }
 
@@ -31,15 +31,30 @@ export default class DistrictRepository {
     if (!data) {
       return statsVals
     }
-
     const newData = data.toUpperCase()
     return statsVals.filter((district) => {
       return district.location.includes(newData)
     })
   }
 
-  // compareDistrictAverages = () => {
+  findAverage = (district) => {
+    const foundDistrict = this.findByName(district)
+    const statValues = Object.values(foundDistrict.stats)
+    const sum = statValues.reduce((sum, value) => {
+      sum = sum + value
+      return sum
+    }, 0)
+    return Math.round(1000*(sum / statValues.length))/1000
+  }
 
-  // }
+  compareDistrictAverages = (districtA, districtB) => {
+    let districtAUpper = districtA.toUpperCase()
+    let districtBUpper = districtB.toUpperCase()
+    const comparedObject = {
+                            [districtAUpper]: this.findAverage(districtA),
+                            [districtBUpper]: this.findAverage(districtB),
+                            compared: Math.round(1000*((this.findAverage(districtA)/(this.findAverage(districtB)))))/1000
+    }
+    return comparedObject
+  }
 }
-
