@@ -3,6 +3,7 @@ import './App.css';
 import { CardContainer } from './CardContainer'
 import DistrictRepository from './helper'
 import Search from './Search.js'
+import { CompareCardContainer } from './CompareCardContainer.js'
 
 const district = new DistrictRepository()
 
@@ -57,9 +58,9 @@ class App extends Component {
       <div className='app'> 
         <div className='title'>Welcome To Headcount 2.0</div>
         <Search updateCards={this.updateCards}/>
-        <CardContainer 
+        <CompareCardContainer 
                       districts={this.state.selectedCards}
-                      comparedDistrict={this.state.comparedObject}
+                      comparedObject={this.state.comparedObject}
         />
         <CardContainer 
                       districts={ this.state.districtCards }

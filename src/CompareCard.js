@@ -1,12 +1,15 @@
 import React from 'react'
-import './CompareCard.css'
+// import './CompareCard.css'
 
-export const CompareCard = ({location, stats, id}) => {
+export const CompareCard = ({locationA, locationB, locationAvgA, locationAvgB, comparison}) => {
   return (
-    <div className="districtCard" key={id} onClick={(e)=>{selectCard(location)}}>
-      <h1 className="districtLocationA">{location}</h1>
-      <ul className="districtStats">{displayStats}</ul>
-      <h1 className="districtLocationB"></h1>
+    <div className="districtCard">
+      <h1 className="districtLocationA">{locationA}</h1>
+      <h3 className="districtAvgA">{locationAvgA}</h3>
+      <p className="compareData">{comparison}</p>
+      <h1 className="districtLocationB">{locationB}</h1>
+      <h3 className="districtAvgB">{locationAvgB}</h3>
+
     </div>
   )
 }
