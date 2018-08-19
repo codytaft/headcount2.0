@@ -11,10 +11,10 @@ class App extends Component {
     super();
     this.state = {
       districtCards: [],
-      selectedCards: []
+      selectedCards: [],
+      comparedObject: {}
     }
   }
-
   componentDidMount = () => {
     this.updateCards()
   }
@@ -25,24 +25,31 @@ class App extends Component {
   }
 
   selectCard = (data) => {
-    const findCard = district.findByName(data)
+    const foundCard = district.findByName(data)
     const selectState = this.state.selectedCards
-    if (!selectState.includes(findCard) && selectState.length < 2) {
-      const selectedCards = [...this.state.selectedCards, findCard]
-      this.setState({ selectedCards })
+    if (!selectState.includes(foundCard) && selectState.length < 2) {
+      const selectedCards = [...this.state.selectedCards, foundCard]
+      this.setState({ selectedCards }, () => this.compareCards( this.state.selectedCards ))
+      foundCard.isSelected = !foundCard.isSelected
     }
-    this.compareCards( this.state.selectedCards )
+    if (selectState.includes(foundCard)) {
+      this.deselectCards(foundCard)
+    } 
   }
 
-  deleteCard = (data) => {
-    const findCard = district.findByName(data)
+  deselectCards = (foundCard) => {
+    const selectedCards = this.state.selectedCards.filter(card => {
+      return card.location !== foundCard.location
+    })
+    this.setState({ selectedCards })
+    foundCard.isSelected = !foundCard.isSelected
   }
 
   compareCards = (cards) => {
     if (this.state.selectedCards.length > 1) {
       var comparedObject = district.compareDistrictAverages(cards[0].location, cards[1].location)
     }
-    console.log(comparedObject)
+    this.setState( { comparedObject })
   }
 
   render() {
@@ -52,10 +59,12 @@ class App extends Component {
         <Search updateCards={this.updateCards}/>
         <CardContainer 
                       districts={this.state.selectedCards}
-                      deleteCard={ this.deleteCard }/>
+                      comparedDistrict={this.state.comparedObject}
+        />
         <CardContainer 
-          districts={ this.state.districtCards }
-          selectCard={ this.selectCard }
+                      districts={ this.state.districtCards }
+                      selectCard={ this.selectCard }
+                      compareCards={ this.compareCards }
         />
       </div> 
     );
