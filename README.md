@@ -10,4 +10,4 @@ This application was built using the `create-react-app` boilerplate.
   * ** Use front-end design skills to style project.
 
 
-<img src = '/public/HeadCountScreenshot.png'>
+<img src = 'public/HeadCountScreenshot.png'>
