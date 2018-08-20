@@ -5,6 +5,5 @@ body {
   height: 100%;
   width: 100%;
   background: #566163 url(./images/Colorado.png);
-  /* background-size: cover; */
   background-blend-mode: multiply;
 }

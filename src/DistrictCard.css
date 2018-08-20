@@ -1,7 +1,7 @@
 .districtCard {
-  box-shadow: 1em;
+  border: .3rem solid rgb(141 181 206);
   border-radius: 15px;
-  background-color: white;
+  background-color: whitesmoke;
   display: flex;
   flex-direction: column;
   width: 15rem;
@@ -12,10 +12,9 @@
 }
 
 .districtCardSelected {
-  box-shadow: 10px 5px 5px red;  
+  border: .3rem solid rgb(211 100 56);
   border-radius: 15px;
-  background-color: white;
-  /* border: ; */
+  background-color: whitesmoke;
   display: flex;
   flex-direction: column;
   width: 15rem;
