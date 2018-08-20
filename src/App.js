@@ -62,6 +62,10 @@ class App extends Component {
                       districts={this.state.selectedCards}
                       comparedObject={this.state.comparedObject}
         />
+
+        <CardContainer 
+                      districts={this.state.selectedCards}
+        />
         <CardContainer 
                       districts={ this.state.districtCards }
                       selectCard={ this.selectCard }

@@ -1,15 +1,14 @@
 import React from 'react'
-// import './CompareCard.css'
+import './CompareCard.css'
 
-export const CompareCard = ({locationA, locationB, locationAvgA, locationAvgB, comparison}) => {
+export const CompareCard = ({locationA, locationB, locationAvgA, locationAvgB, comparison, isSelected}) => {
   return (
-    <div className="districtCard">
-      <h1 className="districtLocationA">{locationA}</h1>
-      <h3 className="districtAvgA">{locationAvgA}</h3>
+    <div className={comparison ? "compareCardShow" : "compareCardHide"}>
+      <h1 className="districtLocation">{locationA}</h1>
+      <h3 className="districtAvg">{locationAvgA}</h3>
       <p className="compareData">{comparison}</p>
-      <h1 className="districtLocationB">{locationB}</h1>
-      <h3 className="districtAvgB">{locationAvgB}</h3>
-
+      <h1 className="districtLocation">{locationB}</h1>
+      <h3 className="districtAvg">{locationAvgB}</h3>
     </div>
   )
 }
