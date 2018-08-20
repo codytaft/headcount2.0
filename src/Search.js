@@ -1,5 +1,6 @@
 import React from 'react'
 import './Search.css'
+import PropTypes from 'prop-types'
 
 const Search = ({updateCards}) => {
   return(
@@ -13,3 +14,7 @@ const Search = ({updateCards}) => {
 }
 
 export default Search
+
+Search.propTypes = {
+  updateCards: PropTypes.func,
+}
