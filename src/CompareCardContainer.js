@@ -1,5 +1,4 @@
 import React from 'react'
-import { DistrictCard } from './DistrictCard'
 import { CompareCard } from './CompareCard'
 import './CompareCardContainer.css'
 

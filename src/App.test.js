@@ -3,15 +3,21 @@ import { shallow, mount } from 'enzyme';
 import App from './App.js';
 
 
-describe('Search', () => {
+describe('App', () => {
 
-  it('renders a cardContainer with the correct props', () => {
-    const wrapper = shallow(<App />)
+  it('matches the snapshot', () => {
+    const wrapper = mount(<App />)
+    expect(wrapper).toMatchSnapshot()
+  });
+
+  it.skip('renders a cardContainer with the correct props', () => {
+    const wrapper = mount(<App />)
     
   });
 
-  it ('initial state is an empty array', () => {
+  it ('cards to be rendered on page load', () => {
     const wrapper = mount(<App />)
-    expect(wrapper.state().districtCards.length).toEqual(0)
+    console.log(wrapper.state())
+    expect(wrapper.state().districtCards.length).toEqual(181)
   })
 })

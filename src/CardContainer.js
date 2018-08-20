@@ -4,11 +4,11 @@ import './CardContainer.css'
 
 export const CardContainer = ({ districts, selectCard }) => {
   const districtValues = Object.values(districts)
-  const displayCards = districtValues.map(district => (
+  const displayCards = districtValues.map((district, index) => (
     <DistrictCard
       location={district.location}
       stats={district.stats}
-      key={district.id}
+      id={index}
       selectCard={ selectCard }
       isSelected={district.isSelected}
     />
