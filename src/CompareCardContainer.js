@@ -1,6 +1,7 @@
 import React from 'react'
 import { CompareCard } from './CompareCard'
 import './CompareCardContainer.css'
+import PropTypes from 'prop-types'
 
 export const CompareCardContainer = ({ comparedObject }) => {
   if (comparedObject) {
@@ -20,4 +21,8 @@ export const CompareCardContainer = ({ comparedObject }) => {
       { compareCards }
     </div>
   )
+}
+
+CompareCardContainer.propTypes = {
+  compareObject: PropTypes.object,
 }

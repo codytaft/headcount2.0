@@ -1,5 +1,7 @@
 import React from 'react'
 import './DistrictCard.css'
+import PropTypes from 'prop-types'
+
 
 export const DistrictCard = ({location, stats, id, selectCard, isSelected}) => {
   const displayStats = Object.entries(stats).map((stat) => {
@@ -11,4 +13,12 @@ export const DistrictCard = ({location, stats, id, selectCard, isSelected}) => {
       <ul className="districtStats">{displayStats}</ul>
     </div>
   )
+}
+
+ThoughtCard.propTypes = {
+  location: PropTypes.string,
+  stats: PropTypes.array,
+  id: PropTypes.number,
+  selectCard: PropTypes.func,
+  isSelected: PropTypes.bool
 }

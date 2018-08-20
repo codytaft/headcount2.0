@@ -1,6 +1,7 @@
 import React from 'react'
 import { DistrictCard } from './DistrictCard'
 import './CardContainer.css'
+import PropTypes from 'prop-types'
 
 export const CardContainer = ({ districts, selectCard }) => {
   const districtValues = Object.values(districts)
@@ -19,4 +20,9 @@ export const CardContainer = ({ districts, selectCard }) => {
       { displayCards }
     </div>
   )
+}
+
+CardContainer.propTypes = {
+  districts: PropTypes.object,
+  selectCard: PropTypes.func,
 }
