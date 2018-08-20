@@ -2,7 +2,7 @@ import kinderData from './data/kindergartners_in_full_day_program.js';
 
 export default class DistrictRepository {
   constructor() {
-    this.stats = this.removeDuplicates(kinderData) || []
+    this.stats = this.removeDuplicates(kinderData) || [];
   }
   
   removeDuplicates = (districtData) => {
@@ -10,24 +10,24 @@ export default class DistrictRepository {
       if (!cleanData[districtData.Location.toUpperCase()]) {
         cleanData[districtData.Location.toUpperCase()] = {
           location: districtData.Location.toUpperCase(),
-          stats: {},
-        }
+          stats: {}
+        };
       }
-      cleanData[districtData.Location.toUpperCase()].stats[districtData.TimeFrame] = Math.round(1000*districtData.Data)/1000 || 0
-      return cleanData
-    }, {})
-  }
+      cleanData[districtData.Location.toUpperCase()].stats[districtData.TimeFrame] = Math.round(1000*districtData.Data)/1000 || 0;
+      return cleanData;
+    }, {});
+  };
 
   findByName = (name) => {
     if (name) {
       return this.stats[name.toUpperCase()]
-    }
+    };
   }
 
   findAllMatches = (data) => {
-    const statsVals = Object.values(this.stats)
+    const statsVals = Object.values(this.stats);
     if (!data) {
-      return statsVals
+      return statsVals;
     }
     const newData = data.toUpperCase()
     return statsVals.filter((district) => {
