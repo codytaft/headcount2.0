@@ -15,7 +15,7 @@ export const DistrictCard = ({location, stats, id, selectCard, isSelected}) => {
   )
 }
 
-ThoughtCard.propTypes = {
+DistrictCard.propTypes = {
   location: PropTypes.string,
   stats: PropTypes.array,
   id: PropTypes.number,

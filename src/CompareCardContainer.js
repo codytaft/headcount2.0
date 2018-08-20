@@ -24,5 +24,5 @@ export const CompareCardContainer = ({ comparedObject }) => {
 }
 
 CompareCardContainer.propTypes = {
-  compareObject: PropTypes.object,
+  compareObject: PropTypes.object
 }
